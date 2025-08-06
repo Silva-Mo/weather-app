@@ -6,19 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack serve --open --config webpack.dev.js",
-    "deploy": "npm run build && git subtree push --prefix dist origin deploy"
+    "start": "webpack serve --open --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Silva-Mo/silvasDigitalWebsite.git"
+    "url": "git+https://github.com/Silva-Mo/weather-app"
   },
   "author": "Silva-Mo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Silva-Mo/silvasDigitalWebsite/issues"
+    "url": "https://github.com/Silva-Mo/weather-app/issues"
   },
-  "homepage": "https://github.com/Silva-Mo/silvasDigitalWebsite#readme",
+  "homepage": "https://github.com/Silva-Mo/weather-app#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",

@@ -5,12 +5,13 @@ const fetchWeatherData = async (location) => {
   if (url.ok) {
     const data = await url.json();
     console.log(data);
+    const address = data.address;
     const temp = data.currentConditions.temp;
     const conditions = data.currentConditions.conditions;
     const humidity = data.currentConditions.humidity;
     const windspeed = data.currentConditions.windspeed;
     const iconType = data.currentConditions.icon;
-    const objOfData = { temp, conditions, humidity, windspeed, iconType };
+    const objOfData = { address, temp, conditions, humidity, windspeed, iconType };
     return objOfData;
   } else {
     if (url.status === 400) {

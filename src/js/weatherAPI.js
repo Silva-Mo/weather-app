@@ -1,11 +1,24 @@
-const fetchWeatherData = async (location) => {
-  const url = await fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?key=3UR3ZJQDXH38ABC3TSTXZ3M2Y`
-  );
+const fetchWeatherData = async (location, current = false) => {
+  let url;
+  if (!current) {
+    url = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?key=3UR3ZJQDXH38ABC3TSTXZ3M2Y`
+    );
+  } else if (current === true) {
+    url = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location.lat},${location.lng}/today?key=3UR3ZJQDXH38ABC3TSTXZ3M2Y`
+    );
+  }
   if (url.ok) {
     const data = await url.json();
     console.log(data);
-    const address = data.address;
+    let address;
+    if (current) {
+      address = `Your Current Location`;
+    } else {
+      address = data.resolvedAddress;
+    }
+
     const temp = data.currentConditions.temp;
     const conditions = data.currentConditions.conditions;
     const humidity = data.currentConditions.humidity;
